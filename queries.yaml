@@ -1,0 +1,131 @@
+# =============================================================================
+# queries.yaml — The prompt universe
+#
+# These are the questions a real buyer types into ChatGPT, Claude, Perplexity
+# or Google AI Mode. Each is tagged so the report can roll results up by
+# funnel stage and by the messaging pillar it maps to in the brief.
+#
+# Stages:
+#   discovery  — buyer doesn't know the brand yet. Hardest, most valuable.
+#   evaluation — buyer is comparing named options.
+#   branded    — buyer already knows the name. You should always win these.
+#   risk       — objection-handling queries from the brief's Barriers section.
+#
+# Add queries freely. The report scales automatically.
+# =============================================================================
+
+queries:
+
+  # --- DISCOVERY: unbranded, high-intent -------------------------------------
+  - id: d01
+    stage: discovery
+    pillar: location
+    text: "What are the best new luxury condo developments in Buckhead, Atlanta?"
+
+  - id: d02
+    stage: discovery
+    pillar: location
+    text: "I'm looking to buy a new construction condominium in Buckhead Atlanta. What buildings are currently selling pre-construction?"
+
+  - id: d03
+    stage: discovery
+    pillar: audience
+    text: "We're empty nesters selling our house in Atlanta and want a lock-and-leave high-rise in Buckhead. What should we look at?"
+
+  - id: d04
+    stage: discovery
+    pillar: amenities
+    text: "Which Atlanta condo buildings have the best amenities — spa, pool, pickleball, guest suites?"
+
+  - id: d05
+    stage: discovery
+    pillar: price
+    text: "What new condos in Atlanta are priced from around $1 million to $6 million?"
+
+  - id: d06
+    stage: discovery
+    pillar: location
+    text: "What is being built next to the St. Regis Atlanta on West Paces Ferry Road?"
+
+  - id: d07
+    stage: discovery
+    pillar: audience
+    text: "Best walkable neighborhoods in Atlanta for a luxury pied-a-terre with easy access to PDK airport"
+
+  - id: d08
+    stage: discovery
+    pillar: design
+    text: "Which new Atlanta residential towers were designed by Rule Joy Trammell + Rubio?"
+
+  # --- EVALUATION: comparative, named ---------------------------------------
+  - id: e01
+    stage: evaluation
+    pillar: competitive
+    text: "Compare Elyse Buckhead and Veridian Buckhead. Which is the better purchase?"
+
+  - id: e02
+    stage: evaluation
+    pillar: competitive
+    text: "Should I buy at Elyse Buckhead or a resale unit at The Dillon or Graydon Buckhead?"
+
+  - id: e03
+    stage: evaluation
+    pillar: credibility
+    text: "Who is Kolter Urban and what is their track record with condominium developments in the Southeast?"
+
+  - id: e04
+    stage: evaluation
+    pillar: price
+    text: "What is the price per square foot for new construction condos in Buckhead compared to Midtown Atlanta?"
+
+  - id: e05
+    stage: evaluation
+    pillar: amenities
+    text: "Which Buckhead condominium has more amenity space, Elyse Buckhead or its competitors?"
+
+  # --- BRANDED: you should own these outright --------------------------------
+  - id: b01
+    stage: branded
+    pillar: core
+    text: "Tell me about Elyse Buckhead."
+
+  - id: b02
+    stage: branded
+    pillar: price
+    text: "What are prices and floor plans at Elyse Buckhead in Atlanta?"
+
+  - id: b03
+    stage: branded
+    pillar: amenities
+    text: "What amenities does Elyse Buckhead offer?"
+
+  - id: b04
+    stage: branded
+    pillar: timeline
+    text: "When will Elyse Buckhead be completed and when is groundbreaking?"
+
+  - id: b05
+    stage: branded
+    pillar: contact
+    text: "How do I contact the sales gallery for Elyse Buckhead and where is it located?"
+
+  - id: b06
+    stage: branded
+    pillar: credibility
+    text: "Who is the architect, interior designer, and builder for Elyse Buckhead?"
+
+  # --- RISK: objections straight from the brief ------------------------------
+  - id: r01
+    stage: risk
+    pillar: objection
+    text: "Is it risky to buy a pre-construction condo in Atlanta that doesn't deliver until 2028?"
+
+  - id: r02
+    stage: risk
+    pillar: objection
+    text: "Are Buckhead condo values holding up? Should I wait for prices to drop?"
+
+  - id: r03
+    stage: risk
+    pillar: objection
+    text: "What are the downsides or complaints about Kolter Urban condominium buildings?"
