@@ -1,0 +1,17 @@
+{
+  "name": "elyse-citation-agent",
+  "version": "1.0.0",
+  "description": "Weekly AI citation report for Elyse Buckhead",
+  "main": "index.js",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node index.js",
+    "test-run": "node index.js --limit 3 --no-email",
+    "rebuild": "node index.js --dry-run"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "nodemailer": "^6.9.14"
+  }
+}

@@ -1,0 +1,63 @@
+name: Weekly AI citation report — Elyse Buckhead
+
+on:
+  schedule:
+    # 13:00 UTC every Monday = 8:00 AM EST in winter, 9:00 AM EDT in summer.
+    # GitHub cron does not observe daylight saving. Use '0 12 * * 1' if you
+    # would rather it land at 8:00 AM during EDT and 7:00 AM during EST.
+    - cron: '0 13 * * 1'
+  # Manual runs from the Actions tab
+  workflow_dispatch:
+
+# Note: there is deliberately no `push` trigger. Committing does not start a run.
+
+permissions:
+  contents: write # needed so the run can commit the updated history.json
+
+jobs:
+  run-citation-agent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run citation agent
+        run: node index.js
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          BRAND_NAME: "Elyse Buckhead"
+          BRAND_DOMAIN: elysebuckhead.com
+          COMPETITOR_1: "Veridian Buckhead"
+          COMPETITOR_2: "The Dillon"
+          COMPETITOR_3: "Graydon Buckhead"
+          COMPETITOR_4: "The Charles"
+
+      - name: Commit updated history
+        run: |
+          git config user.name "citation-agent"
+          git config user.email "actions@github.com"
+          git add history.json
+          git diff --staged --quiet || git commit -m "Citation run $(date -u +%Y-%m-%d)"
+          git push
+        continue-on-error: true
+
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: citation-report-${{ github.run_id }}
+          path: report-*.html
+          retention-days: 90
