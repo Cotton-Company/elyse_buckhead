@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "date": "2026-08-25T21:39:29.525Z",
+    "citationRate": 80,
+    "visibilityRate": 80,
+    "ownedRate": 52,
+    "shareOfVoice": 50,
+    "factErrorCount": 4,
+    "factOutdatedCount": 24,
+    "cited": 20,
+    "mentioned": 0,
+    "absent": 5,
+    "totalPrompts": 25
+  }
+]
