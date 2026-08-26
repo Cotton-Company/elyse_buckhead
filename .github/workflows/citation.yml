@@ -44,6 +44,9 @@ jobs:
           COMPETITOR_2: "The Dillon"
           COMPETITOR_3: "Graydon Buckhead"
           COMPETITOR_4: "The Charles"
+          CCH_SLUG: elyse-buckhead
+          CCH_ENDPOINT: "https://citation-reports.cottondev.com/?rest_route=/cch/v1/run"
+          CCH_TOKEN: ${{ secrets.CCH_TOKEN }}
 
       - name: Commit updated history
         run: |
