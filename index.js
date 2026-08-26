@@ -16,6 +16,7 @@ const { CONFIG } = require('./config');
 const { PROMPTS } = require('./prompts');
 const { runAll, summarize } = require('./agent');
 const { buildReport } = require('./report');
+const { pushToHub } = require('./hub-push');
 
 const args = process.argv.slice(2);
 const has = (flag) => args.includes(flag);
@@ -134,6 +135,13 @@ async function main() {
   console.log('─────────────────────────────────');
   console.log(`\nReport written to ${reportPath}`);
 
+   await pushToHub({
+       slug: process.env.CCH_SLUG,
+       runDate: new Date().toISOString().slice(0, 10),
+       summary,
+       results,
+     });
+  
   if (!has('--no-email') && !has('--dry-run')) {
     await sendEmail(html, summary);
   }
