@@ -135,12 +135,25 @@ async function main() {
   console.log('─────────────────────────────────');
   console.log(`\nReport written to ${reportPath}`);
 
-   await pushToHub({
-       slug: process.env.CCH_SLUG,
-       runDate: new Date().toISOString().slice(0, 10),
-       summary,
-       results,
-     });
+  if (!has('--dry-run')) {
+    await pushToHub({
+      slug: process.env.CCH_SLUG,
+      runDate: stamp,
+      summary: {
+        citationRate: summary.citationRate,
+        visibilityRate: summary.visibilityRate,
+        cited: summary.cited,
+        mentioned: summary.mentioned ?? 0,
+        absent: summary.absent ??
+          Math.max(0, (summary.totalPrompts || 0) - (summary.cited || 0) - (summary.mentioned || 0)),
+        errors: summary.failed ?? 0,
+        total: summary.totalPrompts,
+        ownedSourceCount: summary.ownedCount ?? 0,
+        competitorCounts: summary.competitorCounts || {},
+      },
+      results,
+    });
+  }
   
   if (!has('--no-email') && !has('--dry-run')) {
     await sendEmail(html, summary);
