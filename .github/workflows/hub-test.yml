@@ -13,9 +13,9 @@ jobs:
 
       - name: Push a dummy run
         env:
-          CCH_ENDPOINT: ${{ secrets.CCH_ENDPOINT }}
+          CCH_SLUG: elyse-buckhead
+          CCH_ENDPOINT: "https://citation-reports.cottondev.com/?rest_route=/cch/v1/run"
           CCH_TOKEN: ${{ secrets.CCH_TOKEN }}
-          CCH_SLUG: ${{ secrets.CCH_SLUG }}
         run: |
           cat > hub-test.js <<'EOF'
           const { pushToHub } = require('./hub-push');
