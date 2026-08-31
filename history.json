@@ -11,5 +11,18 @@
     "mentioned": 0,
     "absent": 5,
     "totalPrompts": 25
+  },
+  {
+    "date": "2026-08-31T19:32:23.428Z",
+    "citationRate": 72,
+    "visibilityRate": 72,
+    "ownedRate": 64,
+    "shareOfVoice": 44,
+    "factErrorCount": 3,
+    "factOutdatedCount": 29,
+    "cited": 18,
+    "mentioned": 0,
+    "absent": 7,
+    "totalPrompts": 25
   }
 ]
