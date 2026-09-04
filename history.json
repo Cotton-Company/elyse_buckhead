@@ -37,5 +37,18 @@
     "mentioned": 0,
     "absent": 7,
     "totalPrompts": 25
+  },
+  {
+    "date": "2026-09-04T18:42:50.659Z",
+    "citationRate": 72,
+    "visibilityRate": 72,
+    "ownedRate": 60,
+    "shareOfVoice": 42,
+    "factErrorCount": 5,
+    "factOutdatedCount": 33,
+    "cited": 18,
+    "mentioned": 0,
+    "absent": 7,
+    "totalPrompts": 25
   }
 ]
