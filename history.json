@@ -115,5 +115,18 @@
     "mentioned": 0,
     "absent": 0,
     "totalPrompts": 25
+  },
+  {
+    "date": "2026-10-12T21:39:37.616Z",
+    "citationRate": 0,
+    "visibilityRate": 0,
+    "ownedRate": 0,
+    "shareOfVoice": 0,
+    "factErrorCount": 0,
+    "factOutdatedCount": 0,
+    "cited": 0,
+    "mentioned": 0,
+    "absent": 0,
+    "totalPrompts": 25
   }
 ]
